@@ -22,7 +22,7 @@
                 <source>https://github.com/kodinerds/plugin.video.nowtv.de.p</source>
         </extension>
 </addon>
-<addon id="repository.L0RE-kodinerds" name="Repo fuer Kodinerd Plugins" version="1.1.0" provider-name="L0RE">
+<addon id="repository.L0RE-kodinerds" name="Repo fuer Kodinerd Plugins" version="1.1.1" provider-name="L0RE">
         <extension point="xbmc.addon.repository" name="L0RE">
                 <info compressed="false">https://raw.githubusercontent.com/kodinerds/repo/master/addons.xml</info>
                 <checksum>https://raw.githubusercontent.com/kodinerds/repo/master/addons.xml.md5</checksum>
