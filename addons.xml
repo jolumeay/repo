@@ -204,6 +204,30 @@
         </extension>
 </addon>
 
+<addon id="plugin.video.orftvthek4de" name="ORF TVthek 4 de" version="0.4.6" provider-name="L0RE">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+        <import addon="script.module.parsedom" version="0.9.1"/>
+		<import addon="script.common.plugin.cache" version="0.9.1"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <language>de en</language>
+        <summary lang="de">ORF TVthek</summary>
+        <summary lang="en">ORF TVthek</summary>
+        <language>de</language>
+        <description lang="de">ORF TVthek - Ermöglicht Ihnen den Zugriff auf die ORF TVthek Video Platform. Modifiziert Version so das die Livestreams auch in deutschland gehen (im Settings) Orginal bei sofaking</description>
+        <description lang="en">ORF TVthek - This plugin provides access to the Austrian "ORF TVthek". Modified Version for non austria (Settings) Orginal by sofaking </description>
+        <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+        <email>andreas at vogler dot name</email>
+        <website>http://repo.l0re.com</website>
+        <source>http://repo.l0re.com/data/plugin.video.orftvthek4de</source>
+    </extension>
+</addon>
+
 <addon id="plugin.video.servustv_com" name="ServusTV.com" version="1.0.4" provider-name="L0RE">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
@@ -345,7 +369,10 @@ Orginal Code was from AddonScriptorDE</disclaimer>
   </extension>
 </addon>
 
-<addon id="service.subtitles.subcentral" name="Subcentral.de Patch" version="0.1" provider-name="L0RE">
+<addon id="service.subtitles.subcentral"
+       name="Subcentral.de Patch"
+       version="0.1"
+       provider-name="L0RE">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.subcentral_de" version="1.0"/>
