@@ -1,0 +1,22 @@
+1.0.0
+- Initial release
+1.0.1
+- Changed MTV plugin path
+1.0.2
+- Removed NOW channels
+- Added NOW addon
+- Added Tele5
+1.0.3
+- Added TV Today - Best of Mediatheken
+- Added ProSiebenSat.1 Media
+1.0.4
+- Added TLC
+1.0.5
+- Changed ProSiebenSat.1 to 7TV
+1.0.6
+- Added Servus TV
+1.0.7
+- Changed MTV entry
+- Removed VevoTV
+1.0.8
+- Now Plugin Auf Bromix Plugin geendert das das von Addonscriptor nicht geht

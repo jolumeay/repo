@@ -1,0 +1,12 @@
+0.1 
+- Initial Source
+0.2 
+- Changed to Dectory View
+0.3
+- Changed .. Behavior
+0.6
+- Preview Images Added
+0.7
+- Hintergrund Bilder+ Video Infos
+0.8
+- Serien Hinzugefuegt

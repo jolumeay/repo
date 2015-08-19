@@ -1,0 +1,5 @@
+<settings>
+<setting label="Android IPPatch" type="ipaddress" id="ipaddress" default="127.0.0.1" />
+<setting label="Android PortPatch" type="number" id="port" default="7964" />
+<setting label="rtmpdump(Android Gateway)" type="file" id="rtmpdump" default="rtmpdump"/>
+</settings>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="service.xbmc.playexternal" name="playexternal" version="0.8" provider-name="L0RE">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+    </requires>
+    <extension point="xbmc.service" library="service.py" />
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <summary lang="en"></summary>
+        <language></language>
+        <description lang="en"></description>
+        <disclaimer lang="en">Playing via dump videos.</disclaimer>
+        <license>Not specified yet</license>
+        <source>https://repo.lore.com</source>
+        <forum>h</forum>
+    </extension>
+</addon>

@@ -1,0 +1,12 @@
+0.1
+Initial
+0.3 
+Changes for Compatibility
+0.4
+Timeout Makes the Closing Of Kodi Little better
+0.6
+Added Android Patch
+0.7
+Bleibt nicht mehr haengen
+0.8
+Jetzt beendet sich rmtp dump ca 1 munate nach stoppen des videos

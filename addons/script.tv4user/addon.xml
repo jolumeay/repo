@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.tv4user" name="tv4user" version="0.8" provider-name="L0RE">
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.python.subtitles" library="default.py" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Tv4user.de - Quality subtitles for TV-Shows (DE/EN)</summary>
+    <summary lang="de">Tv4user.de - Hochwertige Untertitel für TV-Serien (DE/EN)</summary>
+    <description lang="en">Tv4user.de - Quality subtitles for TV-Shows (DE/EN)</description>
+    <description lang="de">Tv4user.de - Hochwertige Untertitel für TV-Serien (DE/EN)</description>
+    <website></website>
+    <source>http://repo.l0re.com/data/script.tvuser/</source>
+    <forum>http://board.tv4user.de/index.php?threadID=16114</forum>
+    <email>AddonScriptorDE at yahoo dot de</email>
+    <platform>all</platform>
+  </extension>
+</addon>

@@ -1,5 +1,186 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
+<addon id="plugin.video.animexx" name="Animexx Videos" version="0.8.1" provider-name="L0RE">
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Videos from Animexx</summary>
+    <summary lang="de">Videos von Animexx</summary>
+    <description lang="en">Animexx is one of the biggest german Anime Comunity. This Are Videos from this Comunity</description>
+    <description lang="de">Animexx ist einer der groessten deutschen Anime Comunitys. Dies sind die Videos der Seite</description>
+    <website></website>
+    <source>http://repo.l0re.com/data/plugin.video.animexx/</source>
+    <forum>http://www.animexx.de</forum>
+    <email>andreas at vogler dot name</email>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.arte_tv" name="Arte.tv" version="2.1.8" provider-name="L0RE">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <summary lang="de">ARTE Mediathek (DE/FR)</summary>
+        <summary lang="en">ARTE Media Library (DE/FR)</summary>
+        <summary lang="fr">ARTE médiathèque (DE/FR)</summary>
+        <language>de fr</language>
+        <description lang="de">Videos aus der ARTE Mediathek anschauen + Livestream (DE/FR)</description>
+        <description lang="en">Watch Videos from the ARTE Media Library + Livestream (DE/FR)</description>
+        <description lang="fr">Regarder des vidéos de la ARTE médiathèque + Livestream (DE/FR)</description>
+        <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+        <source>http://repo.l0re.com/data/plugin.video.arte_tv/</source>
+        <forum>http://www.kodinerds.net/index.php/Thread/11527-AddonScriptorDE-s-Addon-Sammlung/</forum>
+        <email>andreas at vogler dot name</email>
+        <website>http://www.arte.tv</website>
+    </extension>
+</addon>
+
+<addon id="plugin.video.br3" name="Bayrisches Fernsehen" version="0.6.3" provider-name="L0RE">
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Videos von Bayrischen Fernsehen</summary>
+    <summary lang="de">Videos of Bavarian Television</summary>
+    <description lang="en">Videos der Mediathek von Bayrischen Fernsehen</description>
+    <description lang="de">Video From Bavarian Television</description>
+    <website></website>
+    <source>http://repo.l0re.com/data/plugin.video.br3/</source>
+    <forum>http://www.kodinerds.net/index.php/Thread/46598-Bayrisches-Fernsehen/</forum>
+    <email>andreas at vogler dot name</email>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.disneychannel_de" name="DisneyChannel.de" version="1.1.0" provider-name="L0RE">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <summary lang="de">DisneyChannel Mediathek</summary>
+        <summary lang="en">DisneyChannel media library</summary>
+        <language>de</language>
+        <description lang="de">DisneyChannel Mediathek</description>
+        <description lang="en">DisneyChannel media library</description>
+        <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+        <source>http://repo.l0re.com/data/plugin.video.disneychannel_de/</source>
+        <forum>http://www.kodinerds.net/index.php/Thread/11527-AddonScriptorDE-s-Addon-Sammlung/</forum>
+        <email>andreas at vogler dot name</email>
+        <website>http://www.disneychannel.de</website>
+    </extension>
+</addon>
+
+<addon id="plugin.video.giga_de" name="GIGA.de" version="2.1.1" provider-name="L0RE">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <summary lang="de">Technik, Games und Entertainment Videos</summary>
+        <summary lang="en">Technical, Games and Entertainment Videos</summary>
+        <language>de</language>
+        <description lang="de">Technik, Games und Entertainment Videos</description>
+        <description lang="en">Technical, Games and Entertainment Videos</description>
+        <website></website>
+        <source>http://repo.l0re.com/data/plugin.video.giga_de/</source>
+        <forum>http://www.kodinerds.net/index.php/Thread/11527-AddonScriptorDE-s-Addon-Sammlung/</forum>
+        <email>andreas at vogler dot name</email>
+    </extension>
+</addon>
+
+<addon id="plugin.video.ign_com" name="IGN.com" version="2.1.1" provider-name="ster">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <summary lang="en">Game and Movie trailers/reviews/news</summary>
+        <language>en</language>
+        <description lang="en">Game and Movie trailers/reviews/news</description>
+    <platform>all</platform>
+    </extension>
+</addon>
+
+<addon id="plugin.video.mediatheken" name="Mediatheken" version="1.0.9" provider-name="L0RE">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <summary lang="en">German media libraries</summary>
+        <summary lang="de">Deutsche Mediatheken</summary>
+        <language>de</language>
+        <description lang="en">German media libraries</description>
+        <description lang="de">Deutsche Mediatheken</description>
+        <source>https://github.com/AddonScriptorDE/plugin.video.mediatheken</source>
+        <forum>http://forum.xbmc.org/showthread.php?tid=</forum>
+        <email>AddonScriptorDE at yahoo dot de</email>
+        <website></website>
+    </extension>
+</addon>
+
+<addon id="plugin.video.mtv_de" name="MTV.de" version="3.2.9" provider-name="L0RE">
+
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <summary lang="de">TV-Shows, Deutsche Charts, Videosuche, Playlisten, Favoriten</summary>
+        <summary lang="en">TV-Shows, german charts, clip search, playlists, favorites</summary>
+        <language>de</language>
+        <description lang="de">TV-Shows, Deutsche Charts, Videosuche, Playlisten, Favoriten</description>
+        <description lang="en">TV-Shows, German charts, clip search, playlists, favorites</description>
+        <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
+    <platform>all</platform>
+    </extension>
+</addon>
+
+<addon id="plugin.video.nick_de" name="Nickelodeon.de" version="1.1.1" provider-name="L0RE">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <summary lang="de">Nickelodeon und Nick Jr. Mediathek</summary>
+        <summary lang="en">Nickelodeon and Nick Jr. media library</summary>
+        <language>de</language>
+        <description lang="de">Nick.de ist die kostenlose Website von Nickelodeon.</description>
+        <description lang="en">Nick.de ist die kostenlose Website von Nickelodeon.</description>
+        <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
+        <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+        <source>http://repo.l0re.com/data/plugin.video.nick_de/</source>
+        <forum>http://forum.xbmc.org/showthread.php?tid=132563</forum>
+        <email>andreas at vogler dot name</email>
+        <website>http://www.nick.de</website>
+    </extension>
+</addon>
+
 <addon id="plugin.video.nowtv.de.p" name="NOW TV PATCH" version="1.0.15" provider-name="L0RE">
         <requires>
                 <import addon="xbmc.python" version="2.19.0"/>
@@ -18,22 +199,207 @@
                 <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
                 <forum></forum>
                 <website>http://nowtv.de</website>
-		 <email> andreas at vogler dot name</email>
-                <source>https://github.com/kodinerds/plugin.video.nowtv.de.p</source>
+		<email> andreas at vogler dot name</email>
+                <source>http://repo.l0re.com/data/plugin.video.nowtv.de.p/</source>
         </extension>
 </addon>
-<addon id="repository.L0RE-kodinerds" name="Repo fuer Kodinerd Plugins" version="1.1.1" provider-name="L0RE">
-        <extension point="xbmc.addon.repository" name="L0RE">
-                <info compressed="false">https://raw.githubusercontent.com/kodinerds/repo/master/addons.xml</info>
-                <checksum>https://raw.githubusercontent.com/kodinerds/repo/master/addons.xml.md5</checksum>
-                <datadir zip="true">https://raw.githubusercontent.com/kodinerds/repo/master/</datadir>
-        </extension>
-        <extension point="xbmc.addon.metadata">
-                <summary>Latest kodi Adons</summary>
-                <description>Latest kodi </description>
-                <disclaimer></disclaimer>
-                <platform>all</platform>
-        </extension>
+
+<addon id="plugin.video.servustv_com" name="ServusTV.com" version="1.0.4" provider-name="L0RE">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+        <import addon="script.module.pyamf" version="0.6.1"/>
+		<import addon="script.module.simple.downloader" version="0.9.5"/> # Add this
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <summary lang="en">Watch videos from the ServusTV media library</summary>
+        <language>de</language>
+        <description lang="en">Watch videos from the ServusTV media library</description>
+        <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
+        <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+        <source>https://github.com/AddonScriptorDE/plugin.video.servustv_com</source>
+        <forum>http://forum.xbmc.org/showthread.php?tid=</forum>
+        <email>AddonScriptorDE at yahoo dot de</email>
+        <website>http://www.servustv.com</website>
+    </extension>
+</addon>
+
+<addon id="plugin.video.spiegel_tv" name="Spiegel.tv" version="1.1.2" provider-name="L0RE">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <summary lang="de">Spiegel TV Mediathek (Reportagen/Dokumentationen)</summary>
+        <summary lang="en">Spiegel TV media library</summary>
+        <language>de</language>
+        <description lang="de">Spiegel TV Mediathek (Reportagen/Dokumentationen)</description>
+        <description lang="en">Spiegel TV media library</description>
+        <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.
+Orginal Code was from AddonScriptorDE</disclaimer>
+        <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+        <source>http://repo.l0re.com/data/plugin.video.spiegel_tv/</source>
+        <forum>http://www.kodinerds.net/index.php/Thread/11527-AddonScriptorDE-s-Addon-Sammlung/</forum>
+        <email>lore at vogler dot name</email>
+        <website>http://www.spiegel.tv</website>
+    </extension>
+</addon>
+
+<addon id="plugin.video.welt_der_wunder" name="Welt der Wunder" version="1.1.4" provider-name="L0RE">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <summary lang="de">Welt der Wunder Livestream und Mediathek</summary>
+        <summary lang="en">Welt der Wunder livestream and media library</summary>
+        <language>de</language>
+        <description lang="de">Welt der Wunder Livestream und Mediathek</description>
+        <description lang="en">Welt der Wunder livestream and media library</description>
+        <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+        <source>http://repo.l0re.com/data/plugin.video.welt_der_wunder/</source>
+        <forum>http://forum.xbmc.org/showthread.php?tid=132563</forum>
+        <email>andreas at vogler dot name</email>
+        <website>http://www.weltderwunder.tv</website>
+    </extension>
+</addon>
+
+<addon id="repository.lost-and-found" name="Repo fuer Kodinerd Plugins" version="1.1.1" provider-name="L0RE">
+	<extension point="xbmc.addon.repository" name="L0RE">
+		<info compressed="false">https://raw.githubusercontent.com/kodinerds/repo/master/addons.xml</info>
+		<checksum>https://raw.githubusercontent.com/kodinerds/repo/master/addons.xml.md5</checksum>
+		<datadir zip="true">https://raw.githubusercontent.com/kodinerds/repo/master/addons/</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Latest kodi Adons</summary>
+		<description>Latest kodi </description>
+		<disclaimer></disclaimer>
+		<platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="script.screensaver.animexx" name="Anime Fanartsaver" version="0.9.1" provider-name="L0RE">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+    </requires>
+    <extension point="xbmc.ui.screensaver" library="screensaver.py" >
+	<provides>executable</provides>
+    </extension>
+    <extension point="xbmc.python.script" library="screensaver.py" />
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <language/>
+        <website>http://repo.l0re.com/</website>
+        <source>http://repo.l0re.com/data/script.screensaver.animexx/</source>
+        <forum>http://www.kodinerds.net/index.php/Thread/45654-RELEASE-Animexx-Fanart-Screensave/</forum>
+        <email>andreas at vogler dot name</email>
+        <summary lang="en">Screensaver for Fanarts from Animexx</summary>
+        <description lang="en">Screensaver ,that shows all new fanarts from Animexx.de</description>
+		<summary lang="de">Screensaver für Animexx Fanarts</summary>
+        <description lang="de">Screensaver ,zum Anzeigen von Fanarts von Animexx.de</description>
+    </extension>
+</addon>
+
+<addon id="script.subcentral_de" name="SubCentral.de" version="1.1.4.7" provider-name="L0RE">
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.python.subtitles" library="default.py" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">SubCentral.de - Quality subtitles for TV-Shows (DE/EN)</summary>
+    <summary lang="de">SubCentral.de - Hochwertige Untertitel für TV-Serien (DE/EN)</summary>
+    <description lang="en">SubCentral.de - Quality subtitles for TV-Shows (DE/EN)</description>
+    <description lang="de">SubCentral.de - Hochwertige Untertitel für TV-Serien (DE/EN)</description>
+    <website></website>
+    <source>http://repo.l0re.com/data/script.subcentral_de/</source>
+    <forum>http://forum.xbmc.org/showthread.php?tid=157479</forum>
+    <email>AddonScriptorDE at yahoo dot de</email>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="script.tv4user" name="tv4user" version="0.8" provider-name="L0RE">
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.python.subtitles" library="default.py" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Tv4user.de - Quality subtitles for TV-Shows (DE/EN)</summary>
+    <summary lang="de">Tv4user.de - Hochwertige Untertitel für TV-Serien (DE/EN)</summary>
+    <description lang="en">Tv4user.de - Quality subtitles for TV-Shows (DE/EN)</description>
+    <description lang="de">Tv4user.de - Hochwertige Untertitel für TV-Serien (DE/EN)</description>
+    <website></website>
+    <source>http://repo.l0re.com/data/script.tvuser/</source>
+    <forum>http://board.tv4user.de/index.php?threadID=16114</forum>
+    <email>AddonScriptorDE at yahoo dot de</email>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="service.subtitles.subcentral" name="Subcentral.de Patch" version="0.1" provider-name="L0RE">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.subcentral_de" version="1.0"/>
+  </requires>
+  <extension point="xbmc.subtitle.module"
+             library="service.py" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">SubcentralWorkaround</summary>
+    <description lang="en">Try to embed Subcentral into the Menu</description>
+    <disclaimer lang="en"></disclaimer>
+    <platform>all</platform>
+    <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+    <forum></forum>
+    <website></website>
+    <email></email>
+    <source></source>    
+  </extension>
+</addon>
+
+<addon id="service.subtitles.tv4user" name="Tv4user.de" version="0.5.0" provider-name="L0RE">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.tv4user" version="0.2"/>
+  </requires>
+  <extension point="xbmc.subtitle.module"
+             library="service.py" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Untertitel von Tv4User</summary>
+    <description lang="en">Subtitle in German from tv4users </description>
+    <disclaimer lang="en"></disclaimer>
+    <platform>all</platform>
+    <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+    <forum>http://board.tv4user.de/index.php?threadID=16114</forum>
+    <website></website>
+    <email></email>
+    <source></source>    
+  </extension>
+</addon>
+
+<addon id="service.xbmc.playexternal" name="playexternal" version="0.8" provider-name="L0RE">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+    </requires>
+    <extension point="xbmc.service" library="service.py" />
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <summary lang="en"></summary>
+        <language></language>
+        <description lang="en"></description>
+        <disclaimer lang="en">Playing via dump videos.</disclaimer>
+        <license>Not specified yet</license>
+        <source>https://repo.lore.com</source>
+        <forum>h</forum>
+    </extension>
 </addon>
 
 </addons>
