@@ -1,0 +1,9 @@
+1.0.0
+- Initial release
+1.0.1
+- Fixed site changes
+1.0.2
+- Fixed video urls; added quality selection
+1.0.3
+- Fix fro Pur 
+- cHANGES from addon.xml
