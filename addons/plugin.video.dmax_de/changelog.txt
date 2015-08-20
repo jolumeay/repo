@@ -1,0 +1,24 @@
+1.0.0
+- Initial release
+1.0.1
+- Changed default view
+1.0.2
+- Changed translations
+1.0.3
+- Added category: Full episodes
+1.0.4
+- Changed season listing
+1.0.6
+- Fixed autoplay modus under gotham
+1.0.7
+- Fixed site changes
+1.0.8
+- Fixed season listing
+1.0.9
+- Added default fanart
+1.1.0
+- Fixed video playback
+1.1.1
+- Until 1.1.1 Owned by AddonScriptor
+- New Version was Patched by mcflay
+- Maintained by L0RE
