@@ -3,6 +3,7 @@ import re
 from xml.etree import ElementTree
 import datetime
 import time
+import xbmc,xbmcaddon
 
 from resources.lib.kodion.exceptions import KodionException
 from resources.lib.kodion import simple_requests as requests
@@ -16,6 +17,16 @@ class UnsupportedStreamException(KodionException):
 
     pass
 
+def debug(content):
+    log(content, xbmc.LOGDEBUG)
+
+def notice(content):
+    log(content, xbmc.LOGNOTICE)
+
+def log(msg, level=xbmc.LOGNOTICE):
+    addon = xbmcaddon.Addon()
+    addonID = addon.getAddonInfo('id')
+    xbmc.log('%s: %s' % (addonID, msg), level)
 
 class Client(object):
     CHANNELS = {
@@ -452,37 +463,45 @@ class Client(object):
 
         return {'items': video_list}
 
-    def get_videos_by_format_list(self, channel_config, format_list_id):
+    def get_videos_by_format_list(self, channel_config, format_list_id,page=1):
+        addon = xbmcaddon.Addon()
+        maxperp=addon.getSetting("kodion.content.max_per_page")
+        debug("Videolist" + str(maxperp) )
         video_list = []
 
-        params = {
+        params1 = {
             'fields': '*,formatTabPages.*,formatTabPages.container.*,formatTabPages.container.movies.*,formatTabPages.container.movies.format.*,formatTabPages.container.movies.paymentPaytypes.*,formatTabPages.container.movies.pictures',
-            'maxPerPage': '100',
-            'page': '1'
+            'maxPerPage': str(maxperp),
+            'page': str(page)
         }
-        json_data = self._perform_request(channel_config, params=params, path='formatlists/%s/' % str(format_list_id))
-        format_tab_pages = json_data.get('formatTabPages', {})
+        params2 = {
+            'fields': '*,format.*,paymentPaytypes.*,livestreamEvent.*,pictures,trailers,annualNavigation',
+            'maxPerPage': str(maxperp),
+            'page': str(page)
+        }
+        debug("ID 1 :" + str(format_list_id))
+        json_data_container = self._perform_request(channel_config, params=params1, path='formatlists/%s/' % str(format_list_id))
+        format_tab_pages = json_data_container.get('formatTabPages', {})
         items = format_tab_pages.get('items', [])
-
         for item in items:
-            container = item.get('container', {})
-            movies = container.get('movies', {})
-            if not movies:
-                movies = {}
-                pass
-            _items = movies.get('items', [])
-            for _item in _items:
-                # in rare cases this property was missing. This also means the item on the webpage wont work either.
-                format_exists = _item.get('format', None)
-                if not format_exists:
-                    continue
-                    pass
-
-                video = self._process_video_data(_item)
-                video_list.append(video)
-                pass
+          container = item.get('container', {})
+          idnr = container.get('id','' )
+          debug("IDNR :"+ str(idnr))
+          json_data = self._perform_request(channel_config, params=params2, path='containers/%s/movies' % str(idnr))
+          count=0
+          _items = json_data.get('items', [])
+          for _item in _items:
+            count=count+1
+            debug("Item")
+            # in rare cases this property was missing. This also means the item on the webpage wont work either.
+            format_exists = _item.get('format', None)
+            if not format_exists:
+               continue
+               pass
+            video = self._process_video_data(_item)
+            video_list.append(video)
             pass
-
+        debug("AnzahlX :" + str(count))
         return {'items': video_list}
 
     def _make_item_to_format(self, json_item):
@@ -702,17 +721,17 @@ class Client(object):
 
         result = None
         if method == 'GET':
-            result = requests.get(_url, params=_params, headers=_headers, verify=False, allow_redirects=allow_redirects)
+            result = requests.get(_url, params=_params, headers=_headers, verify=False, allow_redirects=allow_redirects,timeout=100)
             pass
         elif method == 'POST':
             result = requests.post(_url, json=post_data, params=_params, headers=_headers, verify=False,
-                                   allow_redirects=allow_redirects)
+                                   allow_redirects=allow_redirects,timeout=100)
             pass
         elif method == 'OPTIONS':
-            requests.options(_url, params=_params, headers=_headers, verify=False, allow_redirects=allow_redirects)
+            requests.options(_url, params=_params, headers=_headers, verify=False, allow_redirects=allow_redirects,timeout=100)
             return {}
         elif method == 'DELETE':
-            requests.delete(_url, params=_params, headers=_headers, verify=False, allow_redirects=allow_redirects)
+            requests.delete(_url, params=_params, headers=_headers, verify=False, allow_redirects=allow_redirects,timeout=100)
             return {}
 
         if result is None:

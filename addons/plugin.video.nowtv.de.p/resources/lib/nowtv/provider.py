@@ -35,6 +35,7 @@ class Provider(kodion.AbstractProvider):
     def get_client(self, context):
         # set the items per page (later)
         items_per_page = context.get_settings().get_items_per_page()
+        ipp= context.get_settings().get_items_per_page()
 
         # reset all login relevant data if the credentials have changed
         access_manager = context.get_access_manager()
