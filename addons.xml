@@ -205,7 +205,7 @@
     </extension>
 </addon>
 
-<addon id="plugin.video.kikaninchen" name="KIKANINCHEN" version="1.0.3" provider-name="Tombstone">
+<addon id="plugin.video.kikaninchen" name="KIKANINCHEN" version="1.0.4" provider-name="Tombstone">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
     </requires>
@@ -223,8 +223,6 @@
         <description lang="en">Kikaninchen - the U3 kids channel from ARD and ZDF</description>
     </extension>
 </addon>
-</addon>
-
 
 <addon id="plugin.video.mediatheken" name="Mediatheken" version="1.0.9" provider-name="L0RE">
     <requires>
