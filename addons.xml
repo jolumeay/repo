@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.audio.einslive_de" name="1LIVE.de" version="1.0.4" provider-name="AddonScriptorDE">
+<addon id="plugin.audio.einslive_de" name="1LIVE.de" version="1.0.5" provider-name="AddonScriptorDE">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
     </requires>
@@ -16,7 +16,7 @@
         <description lang="en">O-Ton-Charts, Comedy, reports, talks, clubbing, last shows and livestream</description>
         <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
         <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
-        <source>https://github.com/AddonScriptorDE/plugin.video.einslive_de</source>
+        <source>https://github.com/kodinerds/repo/tree/master/addons/plugin.audio.einslive_de</source>
         <forum>http://forum.xbmc.org/showthread.php?tid=132769</forum>
         <email>AddonScriptorDE at yahoo dot de</email>
         <website>http://www.einslive.de</website>
@@ -182,7 +182,7 @@
     </extension>
 </addon>
 
-<addon id="plugin.video.kika_de" name="KIKA+" version="1.0.4" provider-name="AddonScriptorDE">
+<addon id="plugin.video.kika_de" name="KIKA+" version="1.0.5" provider-name="AddonScriptorDE">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
     </requires>
@@ -198,14 +198,14 @@
         <description lang="en">KiKA - the kids channel from ARD and ZDF</description>
         <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
         <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
-        <source>https://github.com/AddonScriptorDE/plugin.video.kika_de</source>
+        <source>https://github.com/kodinerds/repo/tree/master/addons/plugin.video.kika_de</source>
         <forum>http://forum.xbmc.org/showthread.php?tid=132563</forum>
         <email>AddonScriptorDE at yahoo dot de</email>
         <website>http://kikaplus.net/clients/kika/kikaplus/</website>
     </extension>
 </addon>
 
-<addon id="plugin.video.kikaninchen" name="KIKANINCHEN" version="1.0.2" provider-name="Tombstone">
+<addon id="plugin.video.kikaninchen" name="KIKANINCHEN" version="1.0.3" provider-name="Tombstone">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
     </requires>
@@ -214,6 +214,8 @@
     </extension>
     <extension point="xbmc.addon.metadata">
         <platform>all</platform>
+        <source>https://github.com/kodinerds/repo/tree/master/addons/plugin.video.kikaninchen</source>
+        <forum>http://www.kodinerds.net/index.php/Thread/11527-AddonScriptorDE-s-Addon-Sammlung/</forum>
         <summary lang="de">Kikaninchen Mediathek</summary>
         <summary lang="en">Kikaninchen media library</summary>
         <language>de</language>
@@ -221,6 +223,8 @@
         <description lang="en">Kikaninchen - the U3 kids channel from ARD and ZDF</description>
     </extension>
 </addon>
+</addon>
+
 
 <addon id="plugin.video.mediatheken" name="Mediatheken" version="1.0.9" provider-name="L0RE">
     <requires>
