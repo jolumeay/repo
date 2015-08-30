@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
+<addon id="plugin.audio.einslive_de" name="1LIVE.de" version="1.0.4" provider-name="AddonScriptorDE">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>audio</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <summary lang="de">O-Ton-Charts, Comedy, Reportagen, Talks, Klubbing, letzte Sendungen und Livestream</summary>
+        <summary lang="en">O-Ton-Charts, Comedy, reports, talks, clubbing, last shows and livestream</summary>
+        <language>de</language>
+        <description lang="de">O-Ton-Charts, Comedy, Reportagen, Talks, Klubbing, letzte Sendungen und Livestream</description>
+        <description lang="en">O-Ton-Charts, Comedy, reports, talks, clubbing, last shows and livestream</description>
+        <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
+        <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+        <source>https://github.com/AddonScriptorDE/plugin.video.einslive_de</source>
+        <forum>http://forum.xbmc.org/showthread.php?tid=132769</forum>
+        <email>AddonScriptorDE at yahoo dot de</email>
+        <website>http://www.einslive.de</website>
+    </extension>
+</addon>
+
 <addon id="plugin.video.animexx" name="Animexx Videos" version="0.8.1" provider-name="L0RE">
     <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>video</provides>
@@ -159,6 +182,46 @@
     </extension>
 </addon>
 
+<addon id="plugin.video.kika_de" name="KIKA+" version="1.0.4" provider-name="AddonScriptorDE">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <summary lang="de">KIKA Mediathek</summary>
+        <summary lang="en">KIKA media library</summary>
+        <language>de</language>
+        <description lang="de">KiKA - der Kinderkanal von ARD und ZDF</description>
+        <description lang="en">KiKA - the kids channel from ARD and ZDF</description>
+        <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
+        <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+        <source>https://github.com/AddonScriptorDE/plugin.video.kika_de</source>
+        <forum>http://forum.xbmc.org/showthread.php?tid=132563</forum>
+        <email>AddonScriptorDE at yahoo dot de</email>
+        <website>http://kikaplus.net/clients/kika/kikaplus/</website>
+    </extension>
+</addon>
+
+<addon id="plugin.video.kikaninchen" name="KIKANINCHEN" version="1.0.2" provider-name="Tombstone">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <summary lang="de">Kikaninchen Mediathek</summary>
+        <summary lang="en">Kikaninchen media library</summary>
+        <language>de</language>
+        <description lang="de">Kikaninchen - der U3 Kinderkanal von ARD und ZDF</description>
+        <description lang="en">Kikaninchen - the U3 kids channel from ARD and ZDF</description>
+    </extension>
+</addon>
+
 <addon id="plugin.video.mediatheken" name="Mediatheken" version="1.0.9" provider-name="L0RE">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
@@ -293,7 +356,7 @@
     </extension>
 </addon>
 
-<addon id="plugin.video.sesamstrasse_de" name="Sesamstrasse.de" version="1.0.3" provider-name="L0RE">
+<addon id="plugin.video.sesamstrasse_de" name="Sesamstrasse.de" version="1.0.4" provider-name="L0RE">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
     </requires>
@@ -310,7 +373,7 @@
         <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
         <source>https://github.com/kodinerds/repo/tree/master/addons/plugin.video.sesamstrasse_de</source>
         <forum>http://forum.xbmc.org/showthread.php?tid=132563</forum>
-        <email>lore at vogler.name</email>
+        <email>andreas at vogler dot name</email>
         <website>http://www.sesamstrasse.de</website>
     </extension>
 </addon>

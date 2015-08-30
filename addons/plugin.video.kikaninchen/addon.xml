@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="plugin.video.kikaninchen" name="KIKANINCHEN" version="1.0.2" provider-name="Tombstone">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <summary lang="de">Kikaninchen Mediathek</summary>
+        <summary lang="en">Kikaninchen media library</summary>
+        <language>de</language>
+        <description lang="de">Kikaninchen - der U3 Kinderkanal von ARD und ZDF</description>
+        <description lang="en">Kikaninchen - the U3 kids channel from ARD and ZDF</description>
+    </extension>
+</addon>

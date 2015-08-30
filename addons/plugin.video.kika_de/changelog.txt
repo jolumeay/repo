@@ -1,0 +1,5 @@
+1.0.4
+- Fix to new Site
+
+1.0.0
+- Initial release

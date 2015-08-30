@@ -5,5 +5,6 @@
 1.0.2
 - Fixed video urls; added quality selection
 1.0.3
-- Fix fro Pur 
-- cHANGES from addon.xml
+Until 1.0.2 Maintained by AddonScriptorDE
+Fixed by Pur3
+- Fixed selecting right video

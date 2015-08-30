@@ -1,0 +1,8 @@
+1.0.2
+- Namensfix für neue Serien
+
+1.0.1
+- Namensfix für neue Serien
+
+1.0.0
+- Initial release

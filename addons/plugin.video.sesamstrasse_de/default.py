@@ -65,9 +65,14 @@ def index():
 def playVideo(url):
     global quality
     try:
+        if ',sesamstrasse' in url:
+            regex_suffix_id = ',sesamstrasse(.+?).html'
+            try: suffix_id = re.findall(regex_suffix_id, url)[0]
+            except: suffix_id = '3000'
+        else: suffix_id = '3000'
         content = opener.open(url).read()
         json_uuid = re.findall('player_image-(.+?)_', content)[0]
-        json_url = 'http://www.sesamstrasse.de/sendungsinfos/sesamstrasse3000-ppjson_image-%s.json' % json_uuid
+        json_url = 'http://www.sesamstrasse.de/sendungsinfos/sesamstrasse%s-ppjson_image-%s.json' % (suffix_id, json_uuid)
         json = opener.open(json_url).read()
         regex_qualities = '\.,(.+?),\.'
         qualities = re.findall(regex_qualities, json)[-1].split(',')
