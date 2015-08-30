@@ -14,4 +14,4 @@ for name in *; do
    echo "" >> $REPO/addons.xml
  done
  echo "</addons>" >> $REPO/addons.xml
- md5sum  /www/repo/gitnew/addons.xml >> $REPO/addons.xml.md5
+ md5sum  /www/repo/gitnew/addons.xml > $REPO/addons.xml.md5
