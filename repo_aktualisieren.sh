@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: L0RE
 # This Script Generates a new Inventory for a new Version or New Plugin
-REPO=/www/repo/gitnew
+REPO=/www/repo/git
 cd $REPO/addons
 echo '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' >$REPO/addons.xml
 echo '<addons>' >> $REPO/addons.xml
@@ -14,4 +14,4 @@ for name in *; do
    echo "" >> $REPO/addons.xml
  done
  echo "</addons>" >> $REPO/addons.xml
- md5sum  /www/repo/gitnew/addons.xml > $REPO/addons.xml.md5
+ md5sum  $REPO/addons.xml > $REPO/addons.xml.md5
