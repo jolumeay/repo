@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="plugin.video.kika_de" name="KIKA+" version="1.0.4" provider-name="AddonScriptorDE">
+<addon id="plugin.video.kika_de" name="KIKA+" version="1.0.5" provider-name="AddonScriptorDE">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
     </requires>
@@ -15,7 +15,7 @@
         <description lang="en">KiKA - the kids channel from ARD and ZDF</description>
         <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
         <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
-        <source>https://github.com/AddonScriptorDE/plugin.video.kika_de</source>
+        <source>https://github.com/kodinerds/repo/tree/master/addons/plugin.video.kika_de</source>
         <forum>http://forum.xbmc.org/showthread.php?tid=132563</forum>
         <email>AddonScriptorDE at yahoo dot de</email>
         <website>http://kikaplus.net/clients/kika/kikaplus/</website>

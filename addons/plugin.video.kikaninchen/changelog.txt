@@ -1,3 +1,5 @@
+1.0.3
+- Changed addon.xml
 1.0.2
 - Namensfix für neue Serien
 
