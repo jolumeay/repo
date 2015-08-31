@@ -2,3 +2,5 @@
 - Initial Release as subtitle Plugin
 0.7.0
 - First Try
+0.7.1
+- Missing Resources
