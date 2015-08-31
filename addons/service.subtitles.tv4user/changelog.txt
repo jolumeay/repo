@@ -1,4 +1,4 @@
 0.5.0
 - Initial Release as subtitle Plugin
-0.6.0
+0.7.0
 - First Try
