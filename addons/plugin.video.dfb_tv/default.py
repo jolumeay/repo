@@ -135,7 +135,8 @@ def get_stream_url(video_id):
     xml_url = 'http://tv.dfb.de/server/hd_video.php?play=' + video_id
     try:
         xml_data = urllib2.urlopen(xml_url).read()
-        if not ('<islive>true</islive>' in xml_data): return False
+        if '<live>true</live>' in xml_data:
+            if not ('<islive>true</islive>' in xml_data): return False
         regex_url = '<url>(.+?)</url>'
         xml_url_video = clean_text(re.findall(regex_url, xml_data, re.DOTALL)[0]).split('?')[0] + '?format=iphone'
         xml_url_video = 'http:' + xml_url_video.replace(' //', '//')
