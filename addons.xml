@@ -536,7 +536,7 @@ Orginal Code was from AddonScriptorDE</disclaimer>
   </extension>
 </addon>
 
-<addon id="service.subtitles.tv4user" name="Tv4user.de" version="0.7.3" provider-name="L0RE">
+<addon id="service.subtitles.tv4user" name="Tv4user.de" version="0.7.4" provider-name="L0RE">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>

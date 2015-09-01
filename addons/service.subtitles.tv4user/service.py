@@ -357,6 +357,8 @@ def search():
     try:
       index=serien.index(show)
       id=ids[index]
+      nr=id
+      debug("ID : "+ str(id))
     except:
        error=1
   else :
@@ -365,8 +367,8 @@ def search():
     dialog = xbmcgui.Dialog()
     nr=dialog.select("TV4User.de", serien_complete)
     id=ids[nr]
-    if nr>=0:
-       get_staffeln(id) 
+  if nr>=0 :
+     get_staffeln(id) 
   
 
 def resivefile():
