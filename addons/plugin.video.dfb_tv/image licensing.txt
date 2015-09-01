@@ -1,0 +1,11 @@
+Logo
+==========
+Name: icon.png
+Source: https://play.google.com/store/apps/details?id=de.dfb
+Copyright: 2015, DFB
+
+Fanart
+==========
+Name: fanart.jpg
+Source: http://www.dfb.de/uploads/tx_news/COBA_RGB_DFB_1.jpg
+Copyright: 2014, DFB
