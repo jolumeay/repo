@@ -344,7 +344,8 @@ def get_staffeln(id):
       dialog = xbmcgui.Dialog()
       nr=dialog.select("TV4User.de", staffellist)
       seite=linklist[nr]
-      list_folgen(seite)
+      if nr>=0:
+        list_folgen(seite)
                 
 
 def search():
@@ -364,7 +365,8 @@ def search():
     dialog = xbmcgui.Dialog()
     nr=dialog.select("TV4User.de", serien_complete)
     id=ids[nr]
-  get_staffeln(id) 
+    if nr>=0:
+       get_staffeln(id) 
   
 
 def resivefile():

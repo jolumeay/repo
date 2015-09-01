@@ -24,6 +24,7 @@ viewMode = str(addon.getSetting("viewID"))
 translation = addon.getLocalizedString
 icon = xbmc.translatePath('special://home/addons/'+addonID+'/icon.png')
 iconJr = xbmc.translatePath('special://home/addons/'+addonID+'/iconJr.png')
+iconNight = xbmc.translatePath('special://home/addons/'+addonID+'/iconnight.png')
 urlMain = "http://www.nick.de"
 urlMainJR = "http://www.nickjr.de"
 urlMainnight ="http://www.nicknight.de"
@@ -37,7 +38,7 @@ def index():
     else:
         addDir(translation(30001), "", 'nickMain', icon)
         addDir(translation(30002), "", 'nickJrMain', iconJr)
-        addDir(translation(30007), "", 'nightMain', iconJr)
+        addDir(translation(30007), "", 'nightMain', iconNight)
         xbmcplugin.endOfDirectory(pluginhandle)
 
 
@@ -57,7 +58,7 @@ def nickJrMain():
         xbmc.executebuiltin('Container.SetViewMode('+viewMode+')')
 
 def nightMain():
-    addDir(translation(30004), urlMainnight, 'listShowsNight', iconJr)
+    addDir(translation(30004), urlMainnight, 'listShowsNight', iconNight)
     xbmcplugin.endOfDirectory(pluginhandle)
     if forceViewMode:
         xbmc.executebuiltin('Container.SetViewMode('+viewMode+')')
