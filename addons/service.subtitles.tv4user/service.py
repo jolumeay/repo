@@ -145,16 +145,12 @@ def newthread (url)  :
     if "<!-- Deutsche Untertitel -->" in content:
       contentDE = content[content.find("<!-- Deutsche Untertitel -->")+1:]
       contentDE = contentDE[:contentDE.find("<!-- Englische Untertitel -->")]    
-      folge,untertitel_qualitaet,untertitel_release,untertitel_link,lang_array=get_content(contentDE,"DE")
+      folgede,untertitel_qualitaetde,untertitel_releasede,untertitel_linkde,lang_arrayde=get_content(contentDE,"DE")
       if video['episode']:
-        for folge_zeile in range(0, len(folge), 1):
-          if int(folge[folge_zeile]) == int(video['episode']):
-            addLink("Staffel "+ video['season'] + " Folge "+video['episode']+" "+ untertitel_release[folge_zeile]+" ( "+ untertitel_qualitaet[folge_zeile] + " ) ", untertitel_link[folge_zeile], "download", "", duration="", desc="", genre='',lang=lang_array[folge_zeile])
+        for folge_zeile in range(0, len(folgede), 1):
+          if int(folgede[folge_zeile]) == int(video['episode']):
+            addLink("Staffel "+ video['season'] + " Folge "+video['episode']+" "+ untertitel_releasede[folge_zeile]+" ( "+ untertitel_qualitaetde[folge_zeile] + " ) ", untertitel_linkde[folge_zeile], "download", "", duration="", desc="", genre='',lang=lang_arrayde[folge_zeile])
             gefunden=1           
-    
-      if gefunden==0 :
-         for folgenr in range(0, len(folge), 1):
-            addLink("Folge "+folge[folgenr]+" "+ untertitel_release[folgenr]+" ( "+ untertitel_qualitaet[folgenr] + " ) ", untertitel_link[folgenr], "download", "", duration="", desc="", genre='',lang=lang_array[folgenr])                      
     if "<!-- Englische Untertitel -->" in content:
       contentEN = content[content.find("<!-- Englische Untertitel -->")+1:]
       contentEN = contentEN[:contentEN.find("<!-- Copyright oder Subberinteresse -->")]  
@@ -164,9 +160,12 @@ def newthread (url)  :
           if int(folge[folge_zeile]) == int(video['episode']):
               addLink("Staffel "+ video['season'] + " Folge "+video['episode']+" "+ untertitel_release[folge_zeile]+" ( "+ untertitel_qualitaet[folge_zeile] + " ) ", untertitel_link[folge_zeile], "download", "", duration="", desc="", genre='',lang=lang_array[folge_zeile])          
               gefunden=1
+              
       if gefunden==0 :
+        for folgenr in range(0, len(folgede), 1):
+          addLink("Folge "+folge[folgenr]+" "+ untertitel_release[folgenr]+" ( "+ untertitel_qualitaet[folgenr] + " ) ", untertitel_link[folgenr], "download", "", duration="", desc="", genre='',lang=lang_array[folgenr])                                 
         for folgenr in range(0, len(folge), 1):
-          addLink("Folge "+folge[folgenr]+" "+ untertitel_release[folgenr]+" ( "+ untertitel_qualitaet[folgenr] + " ) ", untertitel_link[folgenr], "download", "", duration="", desc="", genre='',lang=lang_array[folgenr])                  
+            addLink("Folge "+folge[folgenr]+" "+ untertitel_releasede[folgenr]+" ( "+ untertitel_qualitaetde[folgenr] + " ) ", untertitel_linkde[folgenr], "download", "", duration="", desc="", genre='',lang=lang_arrayde[folgenr])                      
     xbmcplugin.endOfDirectory(addon_handle)
     
 def get_content(content,lang ):
