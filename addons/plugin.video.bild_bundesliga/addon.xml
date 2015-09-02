@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="plugin.video.bild_bundesliga" name="Bundesliga bei Bild" version="1.0.6" provider-name="PUR3">
+<addon id="plugin.video.bild_bundesliga" name="Bundesliga bei Bild" version="1.0.8" provider-name="PUR3">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
     </requires>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.audio.einslive_de" name="1LIVE.de" version="1.0.5" provider-name="AddonScriptorDE">
+<addon id="plugin.audio.einslive_de" name="1LIVE.de" version="1.0.7" provider-name="AddonScriptorDE">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
     </requires>
@@ -23,7 +23,7 @@
     </extension>
 </addon>
 
-<addon id="plugin.video.animexx" name="Animexx Videos" version="0.8.1" provider-name="L0RE">
+<addon id="plugin.video.animexx" name="Animexx Videos" version="0.8.3" provider-name="L0RE">
     <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>video</provides>
     </extension>
@@ -40,7 +40,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.arte_tv" name="Arte.tv" version="2.1.8" provider-name="L0RE">
+<addon id="plugin.video.arte_tv" name="Arte.tv" version="2.1.10" provider-name="L0RE">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
     </requires>
@@ -64,7 +64,7 @@
     </extension>
 </addon>
 
-<addon id="plugin.video.bild_bundesliga" name="Bundesliga bei Bild" version="1.0.6" provider-name="PUR3">
+<addon id="plugin.video.bild_bundesliga" name="Bundesliga bei Bild" version="1.0.8" provider-name="PUR3">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
     </requires>
@@ -78,7 +78,7 @@
     </extension>
 </addon>
 
-<addon id="plugin.video.br3" name="Bayrisches Fernsehen" version="0.6.3" provider-name="L0RE">
+<addon id="plugin.video.br3" name="Bayrisches Fernsehen" version="0.6.5" provider-name="L0RE">
     <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>video</provides>
     </extension>
@@ -95,7 +95,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.chefkoch_de" name="Chefkoch.de" version="2.0.5" provider-name="L0RE">
+<addon id="plugin.video.chefkoch_de" name="Chefkoch.de" version="2.0.7" provider-name="L0RE">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
     </requires>
@@ -116,7 +116,7 @@
     </extension>
 </addon>
 
-<addon id="plugin.video.dfb_tv" name="DFB TV" version="1.0.2.1" provider-name="PUR3">
+<addon id="plugin.video.dfb_tv" name="DFB TV" version="1.0.4" provider-name="PUR3">
 	<requires>
 		<import addon="xbmc.python" version="2.1.0"/>
 	</requires>
@@ -133,7 +133,7 @@
 	</extension>
 </addon>
 
-<addon id="plugin.video.disneychannel_de" name="DisneyChannel.de" version="1.1.0" provider-name="L0RE">
+<addon id="plugin.video.disneychannel_de" name="DisneyChannel.de" version="1.1.2" provider-name="L0RE">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
     </requires>
@@ -155,7 +155,7 @@
     </extension>
 </addon>
 
-<addon id="plugin.video.dmax_de" name="DMAX.de" version="1.1.1" provider-name="L0RE">
+<addon id="plugin.video.dmax_de" name="DMAX.de" version="1.1.3" provider-name="L0RE">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
         <import addon="script.module.pyamf" version="0.6.1"/>
@@ -176,7 +176,7 @@
     </extension>
 </addon>
 
-<addon id="plugin.video.giga_de" name="GIGA.de" version="2.1.1" provider-name="L0RE">
+<addon id="plugin.video.giga_de" name="GIGA.de" version="2.1.3" provider-name="L0RE">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
     </requires>
@@ -197,7 +197,7 @@
     </extension>
 </addon>
 
-<addon id="plugin.video.ign_com" name="IGN.com" version="2.1.1" provider-name="ster">
+<addon id="plugin.video.ign_com" name="IGN.com" version="2.1.3" provider-name="ster">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
     </requires>
@@ -213,7 +213,7 @@
     </extension>
 </addon>
 
-<addon id="plugin.video.kika_de" name="KIKA+" version="1.0.5" provider-name="AddonScriptorDE">
+<addon id="plugin.video.kika_de" name="KIKA+" version="1.0.7" provider-name="AddonScriptorDE">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
     </requires>
@@ -236,7 +236,7 @@
     </extension>
 </addon>
 
-<addon id="plugin.video.kikaninchen" name="KIKANINCHEN" version="1.0.4" provider-name="Tombstone">
+<addon id="plugin.video.kikaninchen" name="KIKANINCHEN" version="1.0.6" provider-name="Tombstone">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
     </requires>
@@ -255,7 +255,7 @@
     </extension>
 </addon>
 
-<addon id="plugin.video.mediatheken" name="Mediatheken" version="1.0.9" provider-name="L0RE">
+<addon id="plugin.video.mediatheken" name="Mediatheken" version="1.0.11" provider-name="L0RE">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
     </requires>
@@ -276,7 +276,7 @@
     </extension>
 </addon>
 
-<addon id="plugin.video.mtv_de" name="MTV.de" version="3.2.9" provider-name="L0RE">
+<addon id="plugin.video.mtv_de" name="MTV.de" version="3.2.11" provider-name="L0RE">
 
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
@@ -296,7 +296,7 @@
     </extension>
 </addon>
 
-<addon id="plugin.video.n24_de" name="N24.de" version="2.0.9" provider-name="AddonScriptorDE">
+<addon id="plugin.video.n24_de" name="N24.de" version="2.0.11" provider-name="AddonScriptorDE">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
     </requires>
@@ -315,7 +315,7 @@
     </extension>
 </addon>
 
-<addon id="plugin.video.nick_de" name="Nickelodeon.de" version="1.1.2" provider-name="L0RE">
+<addon id="plugin.video.nick_de" name="Nickelodeon.de" version="1.1.4" provider-name="L0RE">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
     </requires>
@@ -338,7 +338,7 @@
     </extension>
 </addon>
 
-<addon id="plugin.video.nowtv.de.p" name="NOW TV PATCH" version="1.0.16" provider-name="L0RE">
+<addon id="plugin.video.nowtv.de.p" name="NOW TV PATCH" version="1.0.18" provider-name="L0RE">
         <requires>
                 <import addon="xbmc.python" version="2.19.0"/>
         </requires>
@@ -361,7 +361,7 @@
         </extension>
 </addon>
 
-<addon id="plugin.video.orftvthek4de" name="ORF TVthek 4 de" version="0.4.6" provider-name="L0RE">
+<addon id="plugin.video.orftvthek4de" name="ORF TVthek 4 de" version="0.4.8" provider-name="L0RE">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
         <import addon="script.module.parsedom" version="0.9.1"/>
@@ -385,7 +385,7 @@
     </extension>
 </addon>
 
-<addon id="plugin.video.servustv_com" name="ServusTV.com" version="1.0.4" provider-name="L0RE">
+<addon id="plugin.video.servustv_com" name="ServusTV.com" version="1.0.6" provider-name="L0RE">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
         <import addon="script.module.pyamf" version="0.6.1"/>
@@ -408,7 +408,7 @@
     </extension>
 </addon>
 
-<addon id="plugin.video.sesamstrasse_de" name="Sesamstrasse.de" version="1.0.4" provider-name="L0RE">
+<addon id="plugin.video.sesamstrasse_de" name="Sesamstrasse.de" version="1.0.6" provider-name="L0RE">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
     </requires>
@@ -430,7 +430,7 @@
     </extension>
 </addon>
 
-<addon id="plugin.video.spiegel_tv" name="Spiegel.tv" version="1.1.2" provider-name="L0RE">
+<addon id="plugin.video.spiegel_tv" name="Spiegel.tv" version="1.1.4" provider-name="L0RE">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
     </requires>
@@ -454,7 +454,7 @@ Orginal Code was from AddonScriptorDE</disclaimer>
     </extension>
 </addon>
 
-<addon id="plugin.video.welt_der_wunder" name="Welt der Wunder" version="1.1.4" provider-name="L0RE">
+<addon id="plugin.video.welt_der_wunder" name="Welt der Wunder" version="1.1.6" provider-name="L0RE">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
     </requires>
@@ -476,7 +476,7 @@ Orginal Code was from AddonScriptorDE</disclaimer>
     </extension>
 </addon>
 
-<addon id="repository.lost-and-found" name="Repo Lost and Found" version="1.1.3" provider-name="L0RE">
+<addon id="repository.lost-and-found" name="Repo Lost and Found" version="1.1.5" provider-name="L0RE">
 	<extension point="xbmc.addon.repository" name="L0RE">
 		<info compressed="true">https://raw.githubusercontent.com/kodinerds/repo/master/addons.xml</info>
 		<checksum>https://raw.githubusercontent.com/kodinerds/repo/master/addons.xml.md5</checksum>
@@ -490,7 +490,7 @@ Orginal Code was from AddonScriptorDE</disclaimer>
 	</extension>
 </addon>
 
-<addon id="script.screensaver.animexx" name="Anime Fanartsaver" version="0.9.1" provider-name="L0RE">
+<addon id="script.screensaver.animexx" name="Anime Fanartsaver" version="0.9.3" provider-name="L0RE">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
     </requires>
@@ -512,7 +512,7 @@ Orginal Code was from AddonScriptorDE</disclaimer>
     </extension>
 </addon>
 
-<addon id="script.subcentral_de" name="SubCentral.de" version="1.1.4.7" provider-name="L0RE">
+<addon id="script.subcentral_de" name="SubCentral.de" version="1.1.6" provider-name="L0RE">
   <extension point="xbmc.python.pluginsource" library="default.py">
     <provides>executable</provides>
   </extension>
@@ -530,7 +530,7 @@ Orginal Code was from AddonScriptorDE</disclaimer>
   </extension>
 </addon>
 
-<addon id="service.subtitles.subcentral" name="Subcentral.de Patch" version="0.1" provider-name="L0RE">
+<addon id="service.subtitles.subcentral" name="Subcentral.de Patch" version="0.3" provider-name="L0RE">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.subcentral_de" version="1.0"/>
@@ -550,7 +550,7 @@ Orginal Code was from AddonScriptorDE</disclaimer>
   </extension>
 </addon>
 
-<addon id="service.subtitles.tv4user" name="Tv4user.de" version="0.7.5" provider-name="L0RE">
+<addon id="service.subtitles.tv4user" name="Tv4user.de" version="0.7.7" provider-name="L0RE">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -569,7 +569,7 @@ Orginal Code was from AddonScriptorDE</disclaimer>
   </extension>
 </addon>
 
-<addon id="service.xbmc.playexternal" name="playexternal" version="0.8" provider-name="L0RE">
+<addon id="service.xbmc.playexternal" name="playexternal" version="0.10" provider-name="L0RE">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
     </requires>

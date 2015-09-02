@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="plugin.video.orftvthek4de" name="ORF TVthek 4 de" version="0.4.6" provider-name="L0RE">
+<addon id="plugin.video.orftvthek4de" name="ORF TVthek 4 de" version="0.4.8" provider-name="L0RE">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
         <import addon="script.module.parsedom" version="0.9.1"/>

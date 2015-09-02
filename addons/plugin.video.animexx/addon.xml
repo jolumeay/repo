@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.animexx" name="Animexx Videos" version="0.8.1" provider-name="L0RE">
+<addon id="plugin.video.animexx" name="Animexx Videos" version="0.8.3" provider-name="L0RE">
     <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>video</provides>
     </extension>

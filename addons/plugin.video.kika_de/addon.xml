@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="plugin.video.kika_de" name="KIKA+" version="1.0.5" provider-name="AddonScriptorDE">
+<addon id="plugin.video.kika_de" name="KIKA+" version="1.0.7" provider-name="AddonScriptorDE">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
     </requires>
