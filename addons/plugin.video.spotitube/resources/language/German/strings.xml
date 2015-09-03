@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<strings>
+  <string id="30001">Nächste Seite</string>
+  <string id="30101">Region</string>
+  <string id="30102">Blacklist Filter (getrennt durch ',')</string>
+  <string id="30103">Info bei Wiedergabe anzeigen</string>
+  <string id="30104">Typ</string>
+  <string id="30105">Verzögerung in Sekunden</string>
+  <string id="30106">Anzeigedauer in Sekunden</string>
+  <string id="30107">View erzwingen</string>
+  <string id="30108">ViewID (Videos)</string>
+  <string id="30109">ViewID (Playlists)</string>
+  <string id="30110">ViewID (Genres)</string>
+  <string id="30111">Cache Verzeichnis</string>
+  <string id="30201">Allgemein</string>
+</strings>

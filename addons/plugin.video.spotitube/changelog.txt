@@ -1,0 +1,27 @@
+1.0.0
+- Initial release
+1.0.1
+- Changed default folder icon
+1.0.2
+- Changed name to "Youtube Music"
+- Removed info when not using Autoplay mode
+- Added support for iTunes Charts
+- Added support for Billboard
+1.0.3
+- Fixed setting: "iTunes: Force region"
+- Changed iTunes Charts listing (xml->json)
+- Added support for Official Charts Company (UK)
+- Added support for Beatport
+1.0.4
+- Billboard: small encoding bugfix
+1.0.5
+- Added support for Hype Machine
+- Added setting to select youtube addon
+1.0.6 by skatulskijean
+- Fix Youtube Video_ID access
+- Fix officialcharts.com regex
+- Remove officialcharts.com Catalogue and Scottish since no more aviable
+1.0.7 by skatulskijean
+-Fix Beatport (regex)
+-Fix Hype Maschine
+
