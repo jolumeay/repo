@@ -594,22 +594,22 @@ Orginal Code was from AddonScriptorDE</disclaimer>
   </extension>
 </addon>
 
-<addon id="service.subtitles.tv4user" name="Tv4user.de" version="0.7.8" provider-name="L0RE">
+<addon id="service.subtitles.tv4user" name="Tv4user.de" version="0.7.9" provider-name="L0RE">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
   <extension point="xbmc.subtitle.module"
              library="service.py" />
   <extension point="xbmc.addon.metadata">
-    <summary lang="en">Untertitel von board.tv4user.de fuer Serien</summary>
-    <description lang="en">Subtitle in German from board.tv4user.de </description>
+    <summary lang="en">Untertitel von board.tv4user.de fuer Serien in Deutsch und Englisch</summary>
+    <description lang="en">Subtitle in German/English for Serien from board.tv4user.de </description>
     <disclaimer lang="en"></disclaimer>
     <platform>all</platform>
     <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
     <forum>http://www.kodinerds.net/index.php/Thread/47097-RELEASE-Untertitel-Plugin-f%C3%BCr-http-board-tv4user-de</forum>
-    <website></website>
-    <email></email>
-    <source></source>    
+    <website>http://www.br.de</website>
+    <email>andreas at vogler dot name</email>
+    <source>https://github.com/kodinerds/repo/tree/master/addons/service.subtitles.tv4user</source>    
   </extension>
 </addon>
 

@@ -1,5 +1,4 @@
 <settings>
    <setting id="user" type="text" label="30101" default=""/>
    <setting id="pw" type="text" option="hidden" label="30102" default=""/>
-   <setting id="debug" type="bool" label="30107" default="false"/>
 </settings>

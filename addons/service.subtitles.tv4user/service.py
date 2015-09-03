@@ -257,6 +257,7 @@ def get_content_old(content,lang):
       if folge_array and untertitel_qualitaet and untertitel_release_array and untertitel_link_array and untertitel_lang:
          folge_array,untertitel_qualitaet,untertitel_release_array,untertitel_link_array,untertitel_lang = (list(x) for x in zip(*sorted(zip(folge_array,untertitel_qualitaet,untertitel_release_array,untertitel_link_array,untertitel_lang))))
       return folge_array,untertitel_qualitaet,untertitel_release_array,untertitel_link_array,untertitel_lang
+      
 # Einlesen der Alten Threads    
 def oldthread(url):
     content=getUrl(url)
@@ -308,16 +309,6 @@ def addLink(name, url, mode, icon="", duration="", desc="", genre='',lang=""):
   ok = xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]), url=u, listitem=liz)
   return ok
   
-# EIn Directory erzeugen  
-def addDir(name, url, mode, iconimage="", desc=""):
-	u = sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)
-	ok = True
-	liz = xbmcgui.ListItem(name, iconImage=icon, thumbnailImage=iconimage)
-	liz.setInfo(type="Video", infoLabels={"Title": name, "Plot": desc})
-	if useThumbAsFanart:
-		liz.setProperty("fanart_image", iconimage)
-	ok = xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]), url=u, listitem=liz, isFolder=True)
-	return ok
 
 
 # Alle Folgen  Holen je nachdem ob englisch oder Deutsch
@@ -329,7 +320,8 @@ def list_folgen(url):
   else :
      oldthread(url)
     
-  
+
+# Alle Staffeln Holen    
 def get_staffeln(id):
     serienpage=mainUrl+"/serien/board"+id+"-1.html"
     content=getUrl(serienpage)
@@ -346,6 +338,7 @@ def get_staffeln(id):
            for link,dummy,staffel in match:
              debug("suche staffel:"+ video['season']+"X")
              if video['season']:
+                # Wenn Gefunden Lsite für die Staffel alle Folgen
                 if int(staffel.strip()) == int( video['season'].strip()):
                     gefunden=1
                     list_folgen(link) 
@@ -354,39 +347,46 @@ def get_staffeln(id):
                     linklist.append(link)
              else :
                  staffellist.append("Staffel "+ staffel)
-                 linklist.append(link)
+                 linklist.append(link)       
+    # Wenn keine Passende Staffel gefunden
     if gefunden==0 :
       staffellist,linklist = (list(x) for x in zip(*sorted(zip(staffellist, linklist))))
+      # Zeige Alle Staffeln an
       dialog = xbmcgui.Dialog()
       nr=dialog.select("TV4User.de", staffellist)
       seite=linklist[nr]
       if nr>=0:
         list_folgen(seite)
                 
-
+#Suche  
 def search():
   debug("Start search")
   error=0
+  # Suche Serie
   serien_complete,ids,serien=lies_serien()
   show=clean_serie(video['tvshow'])
+  # Wenn keine Serien Gibt es error=1 anosnten wird die ID rausgesucht
   if not show == '':
     try:
       index=serien.index(show)
       id=ids[index]
+      # Hack Wenn man abbricht ist id=0, so wird nr auf 0 gesetzt
       nr=id
       debug("ID : "+ str(id))
     except:
        error=1
   else :
         error=1
+  # Wenn keine Serie gefunden
   if error==1:
     dialog = xbmcgui.Dialog()
     nr=dialog.select("TV4User.de", serien_complete)
     id=ids[nr]
+   # Nur wenn etwas ausgewählt wurde staffeln anzeigen    
   if nr>=0 :
      get_staffeln(id) 
   
-
+# Hole Infos uir Folge die grade läuft aus Datenbank oder Filename
 def resivefile():
   currentFile = xbmc.Player().getPlayingFile()
   try:
@@ -435,11 +435,12 @@ def resivefile():
           if "(" in title:
              title=title[:title.find("(")].strip()
   video['tvshow']=title
-  debug("YYY TITLE: " +title)
-  
+
+# Parameter einlese  
 params = get_params()
 getSettings() 
 
+# Alle Temporaeren files loeschen bevor ein neuer Untertitel Kommt
 def clearSubTempDir(pfad):
 
         files = os.listdir(pfad)
@@ -448,6 +449,7 @@ def clearSubTempDir(pfad):
             os.remove(xbmc.translatePath(pfad+"/"+file))
           except:
             pass
+#Neue Untertitel Holen            
 def setSubtitle(subUrl):  
         subtitle_list = []    
         debug("SUB: " + subUrl)  
@@ -478,11 +480,12 @@ def setSubtitle(subUrl):
 
 
 
-
+# Wenn keine Kennung einegtragen ist diese Verlangen
 while (user=="" or pw==""):
   addon.openSettings()
   getSettings()
 
+# STARTZ  
 login()
 global video
 video ={}
@@ -495,10 +498,10 @@ video['file_original_path'] = xbmc.Player().getPlayingFile().decode('utf-8')    
 video['3let_language']      = [] #['scc','eng']
 video['release']            = ""
 PreferredSub		      = params.get('preferredlanguage')
-
 if video['title'] == "":
     debug(  "tvshow.OriginalTitle not found")
     video['title']  = xbmc.getInfoLabel("VideoPlayer.Title")    # no original title, get just Title
+# Fehlende Daten aus File
 resivefile()
 
 url = urllib.unquote_plus(params.get('url', ''))  
