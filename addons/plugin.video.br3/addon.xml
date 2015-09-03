@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.br3" name="Bayrisches Fernsehen" version="0.6.5" provider-name="L0RE">
+<addon id="plugin.video.br3" name="Bayrisches Fernsehen" version="0.6.6" provider-name="L0RE">
     <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>video</provides>
     </extension>
