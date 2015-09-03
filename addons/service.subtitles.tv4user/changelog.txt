@@ -8,3 +8,5 @@
 - Backknopf geht jetzt
 0.7.4
 - Fehler von 0.7.2 Verbessert
+0.7.8
+- Flaggen eingebaut, Komentare und Code lerserlicher gemacht

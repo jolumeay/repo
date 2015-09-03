@@ -23,16 +23,13 @@ temp       = xbmc.translatePath( os.path.join( profile, 'temp', '') ).decode("ut
 cwd        = xbmc.translatePath( addon.getAddonInfo('path') ).decode("utf-8")
 resource   = xbmc.translatePath( os.path.join( cwd, 'resources', 'lib' ) ).decode("utf-8")
 icon = xbmc.translatePath('special://home/addons/'+addonID+'/icon.png')
-defaultBackground = "http://www.ard.de/pool/img/ard/background/base_xl.jpg"
-defaultThumb = "http://www.ard.de/pool/img/ard/background/base_xl.jpg"
-addonUserDataFolder=xbmc.translatePath("special://profile/addon_data/"+addonID)
 subdir=xbmc.translatePath( os.path.join( temp, 'subs', '') ).decode("utf-8")
 subdownload=xbmc.translatePath( os.path.join( temp, 'download', '') ).decode("utf-8")
 subtitlefile="tv4user"
 
 
 
-
+# Anlegen von Directorys
 if xbmcvfs.exists(subdir):
   shutil.rmtree(subdir)
 xbmcvfs.mkdirs(subdir)
@@ -49,6 +46,7 @@ xbmcvfs.mkdirs(temp)
 xbmcvfs.mkdirs(subdir)
 xbmcvfs.mkdirs(subdownload)
 
+# Logging
 def debug(content):
     log(content, xbmc.LOGDEBUG)
     
@@ -60,13 +58,16 @@ def log(msg, level=xbmc.LOGNOTICE):
     addonID = addon.getAddonInfo('id')
     xbmc.log('%s: %s' % (addonID, msg), level) 
 
+    
+# Einstellungen Lesen    
 def getSettings():
   global user
   user=addon.getSetting("user")
   global pw
   pw=addon.getSetting("pw")
   global backNav
-  
+
+# Url Parameter Einlesen  
 def get_params(string=""):
   param=[]
   if string == "":
@@ -87,7 +88,8 @@ def get_params(string=""):
         param[splitparams[0]]=splitparams[1]
 
   return param  
-  
+
+# Einloggen  
 def login():
   cj = cookielib.CookieJar()
   global mainUrl
@@ -98,7 +100,7 @@ def login():
   opener.addheaders = [('User-Agent', userAgent)]
   xy=opener.open(mainUrl+"/index.php?form=UserLogin", data="loginUsername="+urllib.quote_plus(user)+"&loginPassword="+urllib.quote_plus(pw)).read()
   
-  
+# Url einlesen  
 def getUrl(url):
         
         debug("TV4User: Get Url")
@@ -109,82 +111,94 @@ def getUrl(url):
         response.close()
         return content
 
+        # Titel Beeinigen
 def clean_serie(title):
         title=title.lower().replace('the ','') 
         title=title.replace('.','')
         title=title.replace("'","")
         return title
-        
+
+# Liste Aller Serien Holen        
 def lies_serien():
         debug("TV4User: Starte ShowAllSeries")
         content = opener.open(mainUrl+"/index.php").read()
         content = content[content.find('Alphabetische Serien-&Uuml;bersicht')+1:]
         content = content[:content.find('</form>')]
+        # Serie Suchen
         match=re.compile('<option value="([0-9]+?)">([^<>]+?)</option>', re.DOTALL).findall(content)
         threadIDs = []
         threadNames = []
         threadNamesclean = []
         for id, title in match:
           threadIDs.append(id)
+          # Clean wird gebraucht damit "The und ohen The Serien Matchen"
           threadNamesclean.append(clean_serie(title))   
           threadNames.append(title) 
         threadIDs, threadNames,threadNamesclean = (list(x) for x in zip(*sorted(zip(threadNames, threadIDs,threadNamesclean))))
         return threadIDs, threadNames,threadNamesclean
 
 
-        
+# Ueberschriften von Neuen Threads Holen da dort die Qualitaets typen drin stehen        
 def get_uberschriften_new(content):
   match=re.compile('<td>([^<]+)</td>', re.DOTALL).findall(content)
   return match
  
-              
+# Neuen Thread Holen              
 def newthread (url)  :
     content=getUrl(url)
     debug("star newthread")
     gefunden=0
+    folge=[]
+    folgede=[]
+    # Deutsch
     if "<!-- Deutsche Untertitel -->" in content:
       contentDE = content[content.find("<!-- Deutsche Untertitel -->")+1:]
       contentDE = contentDE[:contentDE.find("<!-- Englische Untertitel -->")]    
-      folgede,untertitel_qualitaetde,untertitel_releasede,untertitel_linkde,lang_arrayde=get_content(contentDE,"DE")
+      # Holt alle Folgen aus einem Thread
+      folgede,untertitel_qualitaetde,untertitel_releasede,untertitel_linkde,lang_arrayde=get_content(contentDE,"de")
+      # Video bei dem es die Episoden Nummer gibt ,diese folge raussuchen
       if video['episode']:
         for folge_zeile in range(0, len(folgede), 1):
-          if int(folgede[folge_zeile]) == int(video['episode']):
-            addLink("Staffel "+ video['season'] + " Folge "+video['episode']+" "+ untertitel_releasede[folge_zeile]+" ( "+ untertitel_qualitaetde[folge_zeile] + " ) ", untertitel_linkde[folge_zeile], "download", "", duration="", desc="", genre='',lang=lang_arrayde[folge_zeile])
+          if int(folgede[folge_zeile]) == int(video['episode']):            
+            addLink("Staffel "+ video['season'] + " Folge "+video['episode']+" "+ untertitel_releasede[folge_zeile]+" ( "+ untertitel_qualitaetde[folge_zeile] + " ) ", untertitel_linkde[folge_zeile], "download", duration="", desc="", genre='', lang=lang_arrayde[folge_zeile])
             gefunden=1           
+     # Englisch
     if "<!-- Englische Untertitel -->" in content:
       contentEN = content[content.find("<!-- Englische Untertitel -->")+1:]
       contentEN = contentEN[:contentEN.find("<!-- Copyright oder Subberinteresse -->")]  
-      folge,untertitel_qualitaet,untertitel_release,untertitel_link,lang_array=get_content(contentEN,"EN")
+      folge,untertitel_qualitaet,untertitel_release,untertitel_link,lang_array=get_content(contentEN,"en")
       if video['episode']:
         for folge_zeile in range(0, len(folge), 1):
           if int(folge[folge_zeile]) == int(video['episode']):
-              addLink("Staffel "+ video['season'] + " Folge "+video['episode']+" "+ untertitel_release[folge_zeile]+" ( "+ untertitel_qualitaet[folge_zeile] + " ) ", untertitel_link[folge_zeile], "download", "", duration="", desc="", genre='',lang=lang_array[folge_zeile])          
+              addLink("Staffel "+ video['season'] + " Folge "+video['episode']+" "+ untertitel_release[folge_zeile]+" ( "+ untertitel_qualitaet[folge_zeile] + " ) ", untertitel_link[folge_zeile], "download", duration="", desc="", genre='',lang=lang_array[folge_zeile])          
               gefunden=1
-              
-      if gefunden==0 :
-        for folgenr in range(0, len(folgede), 1):
-          addLink("Folge "+folge[folgenr]+" "+ untertitel_release[folgenr]+" ( "+ untertitel_qualitaet[folgenr] + " ) ", untertitel_link[folgenr], "download", "", duration="", desc="", genre='',lang=lang_array[folgenr])                                 
-        for folgenr in range(0, len(folge), 1):
-            addLink("Folge "+folge[folgenr]+" "+ untertitel_releasede[folgenr]+" ( "+ untertitel_qualitaetde[folgenr] + " ) ", untertitel_linkde[folgenr], "download", "", duration="", desc="", genre='',lang=lang_arrayde[folgenr])                      
+    # Wenn nichts gefunden wurde alle anzeigen 
+    if gefunden==0 :
+          for folgenr in range(0, len(folgede), 1):
+            addLink("Folge "+folgede[folgenr]+" "+ untertitel_releasede[folgenr]+" ( "+ untertitel_qualitaetde[folgenr] + " ) ", untertitel_linkde[folgenr], "download", "", duration="", desc="", genre='',lang=lang_arrayde[folgenr])                      
+          for folgenr in range(0, len(folge), 1):
+            addLink("Folge "+folge[folgenr]+" "+ untertitel_release[folgenr]+" ( "+ untertitel_qualitaet[folgenr] + " ) ", untertitel_link[folgenr], "download", "", duration="", desc="", genre='',lang=lang_array[folgenr])                                 
+      
     xbmcplugin.endOfDirectory(addon_handle)
-    
+
+# Neue Folgenliste Einlesen    
 def get_content(content,lang ):
     debug ("Get Content")
-    debug ("Get Content content:"+ content)
     untertitel_link_array=[]
     untertitel_release_array=[]
     untertitel_qualitaet=[]
     untertitel_lang=[]
     folge_array=[]    
     zeile = content.split('</tr')
-    ueberschrift=get_uberschriften_new(zeile[0])    
-    
+    #Einlesen der ueberschriften Erste Zeile
+    ueberschrift=get_uberschriften_new(zeile[0])        
+    # Ab der Zweiten Zeile sind Folgen
     for zeilenr in range(1, len(zeile), 1):
       entry = zeile[zeilenr]
       match=re.compile('<td class="nr">([0-9]+) -', re.DOTALL).findall(entry)
       if not match:
         break
-      folge=match[0]
+      folge=match[0]     
       spalte = entry.split('<td>')
       for spaltennr in range(1, len(spalte), 1):
           entry = spalte[spaltennr]
@@ -203,11 +217,12 @@ def get_content(content,lang ):
                untertitel_lang.append(lang)
                if untertitel[untertitelnr][0] and untertitel[untertitelnr][1] and ueberschrift[spaltennr-1] and lang :
                   folge_array.append(folge)
+    # Wenn alles Gefüllt ist sortieren, wenn nicht, werden nur die Leeren Arrays zurueckgegeben
     if folge_array and untertitel_qualitaet and untertitel_release_array and untertitel_link_array and untertitel_lang:
        folge_array,untertitel_qualitaet,untertitel_release_array,untertitel_link_array,untertitel_lang = (list(x) for x in zip(*sorted(zip(folge_array,untertitel_qualitaet,untertitel_release_array,untertitel_link_array,untertitel_lang))))
     return folge_array,untertitel_qualitaet,untertitel_release_array,untertitel_link_array,untertitel_lang
     
-    
+# Liest den alten Inhalt ein    
 def get_content_old(content,lang):
       debug("get_content_old")
       untertitel_link_array=[]
@@ -215,13 +230,16 @@ def get_content_old(content,lang):
       untertitel_qualitaet=[]
       untertitel_lang=[]
       folge_array=[]    
+      # Hier hat jede Qualiaet seine eigene rubrik, die hier seperat eingelesen wird
       qual_content = content.split('<span class="normalfont">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;')
       debug("Anz :" + str(len(qual_content)))
       for qualnr in range(1, len(qual_content), 1):
          entry = qual_content[qualnr]
+         #Qualitaet einlesen
          debug("Start Qulitaet")
          qual=re.compile('<b>([^<]+)</b>', re.DOTALL).findall(entry)
          qualitaet=qual[0]
+         # Untertitel rausholen
          untertitels=re.compile('<a href="([^"]+)">([^<]+)</a>', re.DOTALL).findall(entry)
          for untertitelnr in range(0, len(untertitels), 1):
              link=untertitels[untertitelnr][0]
@@ -235,75 +253,74 @@ def get_content_old(content,lang):
                 untertitel_release_array.append(filename)
                 if episode_staffel:
                    folge_array.append(episode_staffel[0][1])
+      # Wenn Alles gesetzt ist sortieren und zurückgeben, wenn was leer ist die leeren strings zurückgeben
       if folge_array and untertitel_qualitaet and untertitel_release_array and untertitel_link_array and untertitel_lang:
          folge_array,untertitel_qualitaet,untertitel_release_array,untertitel_link_array,untertitel_lang = (list(x) for x in zip(*sorted(zip(folge_array,untertitel_qualitaet,untertitel_release_array,untertitel_link_array,untertitel_lang))))
       return folge_array,untertitel_qualitaet,untertitel_release_array,untertitel_link_array,untertitel_lang
-    
+# Einlesen der Alten Threads    
 def oldthread(url):
     content=getUrl(url)
-    debug("OldThread")
-      
+    debug("OldThread")      
     gefunden=0
+    # Start Englische Untertitel
+    if '<span style="font-size: 14pt"><strong><span style="text-decoration: underline">Englische Untertitel:</span></strong>' in content:
+      contentEN = content[content.find('<span style="font-size: 14pt"><strong><span style="text-decoration: underline">Englische Untertitel:</span></strong>')+1:]
+      contentEN = contentEN[:contentEN.find('<div class="containerIcon"><i class="taggingM css-sprite"></i></div>')] 
+      folge,untertitel_qualitaet,untertitel_release,untertitel_link,lang_array=get_content_old(contentEN,"de")
+      if video['episode']:
+        for folge_zeile in range(0, len(folge), 1):
+          if int(folge[folge_zeile]) == int(video['episode']):
+            addLink("Staffel "+ video['season'] + " Folge "+video['episode']+" "+ untertitel_release[folge_zeile]+" ( "+ untertitel_qualitaet[folge_zeile] + " ) ", untertitel_link[folge_zeile], "download", duration="", desc="", genre='',lang=lang_array[folge_zeile])
+            gefunden=1                         
+    #start Deutsche Untertitel        
     if '<span style="font-size: 14pt"><strong><span style="text-decoration: underline">Deutsche Untertitel:</span></strong>' in content:
       contentDE = content[content.find('<span style="font-size: 14pt"><strong><span style="text-decoration: underline">Deutsche Untertitel:</span></strong>')+1:]
       contentDE = contentDE[:contentDE.find('<span style="font-size: 14pt"><strong><span style="text-decoration: underline">Englische Untertitel:</span></strong>')] 
-      folge,untertitel_qualitaet,untertitel_release,untertitel_link,lang_array=get_content_old(contentDE,"DE")
+      folgede,untertitel_qualitaetde,untertitel_releasede,untertitel_linkde,lang_arrayde=get_content_old(contentDE,"en")
       if video['episode']:
         for folge_zeile in range(0, len(folge), 1):
           if int(folge[folge_zeile]) == int(video['episode']):
-            addLink("Staffel "+ video['season'] + " Folge "+video['episode']+" "+ untertitel_release[folge_zeile]+" ( "+ untertitel_qualitaet[folge_zeile] + " ) ", untertitel_link[folge_zeile], "download", "", duration="", desc="", genre='',lang=lang_array[folge_zeile])
-            gefunden=1               
-      if gefunden==0 :
-         for folgenr in range(0, len(folge), 1):
-            addLink("Folge "+folge[folgenr]+" "+ untertitel_release[folgenr]+" ( "+ untertitel_qualitaet[folgenr] + " ) ", untertitel_link[folgenr], "download", "", duration="", desc="", genre='',lang=lang_array[folgenr])                      
-    if '<span style="font-size: 14pt"><strong><span style="text-decoration: underline">Englische Untertitel:</span></strong>' in content:
-      contentEN = content[content.find('<span style="font-size: 14pt"><strong><span style="text-decoration: underline">Englische Untertitel:</span></strong>')+1:]
-      contentEN = contentEN[:contentEN.find('<div class="containerIcon"><i class="taggingM css-sprite"></i></div>')]
-      folge,untertitel_qualitaet,untertitel_release,untertitel_link,lang_array=get_content_old(contentEN,"EN")
-      if video['episode']:
-        for folge_zeile in range(0, len(folge), 1):
-          if int(folge[folge_zeile]) == int(video['episode']):
-              addLink("Staffel "+ video['season'] + " Folge "+video['episode']+" "+ untertitel_release[folge_zeile]+" ( "+ untertitel_qualitaet[folge_zeile] + " ) ", untertitel_link[folge_zeile], "download", "", duration="", desc="", genre='',lang=lang_array[folge_zeile])          
+              addLink("Staffel "+ video['season'] + " Folge "+video['episode']+" "+ untertitel_releasede[folge_zeile]+" ( "+ untertitel_qualitaetde[folge_zeile] + " ) ", untertitel_linkde[folge_zeile], "download", duration="", desc="", genre='',lang=lang_arrayde[folge_zeile])          
               gefunden=1
-      if gefunden==0 :
-        for folgenr in range(0, len(folge), 1):
+    #Wenn es nichts gibt alles anzeigen
+    if gefunden==0 :
+       for folgenr in range(0, len(folge), 1):
           addLink( untertitel_release[folgenr]+" ( "+ untertitel_qualitaet[folgenr] + " ) ", untertitel_link[folgenr], "download", "", duration="", desc="", genre='',lang=lang_array[folgenr])                  
+       for folgenr in range(0, len(folge), 1):
+            addLink("Folge "+folge[folgenr]+" "+ untertitel_release[folgenr]+" ( "+ untertitel_qualitaet[folgenr] + " ) ", untertitel_link[folgenr], "download", "", duration="", desc="", genre='',lang=lang_array[folgenr])                      
     xbmcplugin.endOfDirectory(addon_handle)
     
 
     
-
-def addLink(name, url, mode, iconimage="", duration="", desc="", genre='',lang=""):
-	u = sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)
-	ok = True
-	liz = xbmcgui.ListItem(label=lang,label2=name)
-	#liz.setInfo(type="Video", infoLabels={"Title": name, "Duration": duration, "Plot": desc, "Genre": genre})
-	liz.setInfo(type="Video", infoLabels={"Title": name, "Plot": desc, "Genre": genre})
-	liz.setProperty('IsPlayable', 'true')
-	liz.addStreamInfo('video', { 'duration' : duration })
-	liz.setProperty("fanart_image", defaultBackground)
-	#liz.addContextMenuItems([(translation(30012), 'RunPlugin(plugin://'+addonID+'/?mode=queueVideo&url='+urllib.quote_plus(u)+'&name='+urllib.quote_plus(name)+')',)])
-	xbmcplugin.setContent(int(sys.argv[1]), 'tvshows')
-	ok = xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]), url=u, listitem=liz)
-	return ok
+# Einen Link Erzeugen
+def addLink(name, url, mode, icon="", duration="", desc="", genre='',lang=""):
+  u = sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)
+  ok = True
+  iconl=""
+  if lang=="de":
+    sprache=translation(30110)
+    iconl="de"
+  if lang=="en":
+    sprache=translation(30111)
+    iconl="en"
+  liz = xbmcgui.ListItem(label2=name,thumbnailImage=iconl,label=sprache)
+  debug("ICONXXX:'"+icon+"'")
+  ok = xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]), url=u, listitem=liz)
+  return ok
   
-  
+# EIn Directory erzeugen  
 def addDir(name, url, mode, iconimage="", desc=""):
 	u = sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)
 	ok = True
 	liz = xbmcgui.ListItem(name, iconImage=icon, thumbnailImage=iconimage)
 	liz.setInfo(type="Video", infoLabels={"Title": name, "Plot": desc})
 	if useThumbAsFanart:
-		if not iconimage or iconimage==icon or iconimage==defaultThumb:
-			iconimage = defaultBackground
 		liz.setProperty("fanart_image", iconimage)
-	else:
-		liz.setProperty("fanart_image", defaultBackground)
 	ok = xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]), url=u, listitem=liz, isFolder=True)
 	return ok
 
 
-
+# Alle Folgen  Holen je nachdem ob englisch oder Deutsch
 def list_folgen(url):
   debug("list_folgen: "+ url)
   content=getUrl(url)
