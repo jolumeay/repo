@@ -175,9 +175,9 @@ def newthread (url)  :
     # Wenn nichts gefunden wurde alle anzeigen 
     if gefunden==0 :
           for folgenr in range(0, len(folgede), 1):
-            addLink("Folge "+folgede[folgenr]+" "+ untertitel_releasede[folgenr]+" ( "+ untertitel_qualitaetde[folgenr] + " ) ", untertitel_linkde[folgenr], "download", "", duration="", desc="", genre='',lang=lang_arrayde[folgenr])                      
+            addLink(video['season']+" Folge "+folgede[folgenr]+" "+ untertitel_releasede[folgenr]+" ( "+ untertitel_qualitaetde[folgenr] + " ) ", untertitel_linkde[folgenr], "download", "", duration="", desc="", genre='',lang=lang_arrayde[folgenr])                      
           for folgenr in range(0, len(folge), 1):
-            addLink("Folge "+folge[folgenr]+" "+ untertitel_release[folgenr]+" ( "+ untertitel_qualitaet[folgenr] + " ) ", untertitel_link[folgenr], "download", "", duration="", desc="", genre='',lang=lang_array[folgenr])                                 
+            addLink(video['season']+" Folge "+folge[folgenr]+" "+ untertitel_release[folgenr]+" ( "+ untertitel_qualitaet[folgenr] + " ) ", untertitel_link[folgenr], "download", "", duration="", desc="", genre='',lang=lang_array[folgenr])                                 
       
     xbmcplugin.endOfDirectory(addon_handle)
 
@@ -281,14 +281,14 @@ def oldthread(url):
       if video['episode']:
         for folge_zeile in range(0, len(folge), 1):
           if int(folge[folge_zeile]) == int(video['episode']):
-              addLink("Staffel "+ video['season'] + " Folge "+video['episode']+" "+ untertitel_releasede[folge_zeile]+" ( "+ untertitel_qualitaetde[folge_zeile] + " ) ", untertitel_linkde[folge_zeile], "download", duration="", desc="", genre='',lang=lang_arrayde[folge_zeile])          
+              addLink("Staffel "+ video['season'] + "Folge "+video['episode']+" "+ untertitel_releasede[folge_zeile]+" ( "+ untertitel_qualitaetde[folge_zeile] + " ) ", untertitel_linkde[folge_zeile], "download", duration="", desc="", genre='',lang=lang_arrayde[folge_zeile])          
               gefunden=1
     #Wenn es nichts gibt alles anzeigen
     if gefunden==0 :
        for folgenr in range(0, len(folge), 1):
-          addLink( untertitel_release[folgenr]+" ( "+ untertitel_qualitaet[folgenr] + " ) ", untertitel_link[folgenr], "download", "", duration="", desc="", genre='',lang=lang_array[folgenr])                  
+          addLink( video['season'] + " Folge "+ untertitel_release[folgenr]+" ( "+ untertitel_qualitaet[folgenr] + " ) ", untertitel_link[folgenr], "download", "", duration="", desc="", genre='',lang=lang_array[folgenr])                  
        for folgenr in range(0, len(folge), 1):
-            addLink("Folge "+folge[folgenr]+" "+ untertitel_release[folgenr]+" ( "+ untertitel_qualitaet[folgenr] + " ) ", untertitel_link[folgenr], "download", "", duration="", desc="", genre='',lang=lang_array[folgenr])                      
+            addLink(video['season']+" Folge "+folge[folgenr]+" "+ untertitel_release[folgenr]+" ( "+ untertitel_qualitaet[folgenr] + " ) ", untertitel_link[folgenr], "download", "", duration="", desc="", genre='',lang=lang_array[folgenr])                      
     xbmcplugin.endOfDirectory(addon_handle)
     
 
@@ -355,7 +355,8 @@ def get_staffeln(id):
       dialog = xbmcgui.Dialog()
       nr=dialog.select("TV4User.de", staffellist)
       seite=linklist[nr]
-      if nr>=0:
+      video['season']=staffellist[nr]
+      if nr>=0:      
         list_folgen(seite)
                 
 #Suche  

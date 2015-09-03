@@ -1,3 +1,5 @@
+0.8.0
+- Zeit Staffel bei Allen Folgen an
 0.7.9
 - Code überarbeitet, Bild Resised,Changelog verbessert, Code Bereinigt. Alles für nen kodi.tv release vorbereitet
 0.7.8
